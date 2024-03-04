@@ -7,23 +7,12 @@ import java.util.Scanner;
 
 public class Movie {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-    // 예매하기
-        // 좌석 선택
-        //결제하기
-    }
-
-    void getSeat() {
-        int[] seat = new int[10];
-        for (int i = 0; i < seat.length; i++) {
-            if (seat[i] != 1) System.out.print(i);
-        }
-    }
-
-    void setSeat(){
-
+        Ticket ticket = new Ticket();
+        ticket.getSeat();
+        ticket.setSeat();
+        ticket.book();
     }
 
 
-}
+    }
+
