@@ -11,12 +11,10 @@ public class Lotto {
                  for(int j = 0; j < i; j ++){
                      while(true) {
                          if (num[j] == lottoNum)  lottoNum = (int) (Math.random() * 45 + 1);
-                         else {
-                             num[i] = lottoNum;
-                             break;
-                         }
+                         else break;
                      }
                 }
+            num[i] = lottoNum;
             }
 
         for(int e : num){
