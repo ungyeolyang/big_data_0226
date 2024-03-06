@@ -34,7 +34,7 @@ class Car{
     String color;
     int speed;
     int horsePower;
-
+    //생성자는 리턴타입이없음
     Car(){} // default 생성자는 선언안해도 자동 생성, 다른 생성자를 만들면 따로 만들어 줘야 한다.
     Car(String company){ // 생성자 오버로딩, 동일한 이름의 메소드를 매개변수의 개수나 타입으로 구분
         this.company = company;

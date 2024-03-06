@@ -5,7 +5,7 @@ import java.util.Scanner;
 // a 5분
 // b 1분
 // c 10초
-// t 초에 버튼 최소
+// t시간동안 최소 버튼값 조합안되는 결과는 -1
 public class Microwave {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -15,8 +15,8 @@ public class Microwave {
         time[1] = (num%300)/60;
         time[2] = (num%60/10);
         if(num%10 == 0){
-            for(int i = 0; i<time.length; i++)
-                System.out.print(time[i] +" ");
+            for(int e : time)
+                System.out.print(e +" ");
         }
         else System.out.println("-1");
     }

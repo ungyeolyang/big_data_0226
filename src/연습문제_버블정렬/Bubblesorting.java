@@ -1,6 +1,4 @@
-package 버블정렬;
-
-import java.util.Scanner;
+package 연습문제_버블정렬;
 
 public class Bubblesorting {
     public static void main(String[] args) {
