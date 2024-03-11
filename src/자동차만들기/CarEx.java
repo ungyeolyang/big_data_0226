@@ -5,9 +5,10 @@ import java.util.Scanner;
 public class CarEx {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Car car = null;
+        Car car = null; // 밑에 코드가 default인경우에는 값이 안들어 가기 때문에 초기화를 시켜줘야한다.
+        //final int[] dist = {0, 400, 200, 150, 300} // switch문 안쓰기위해 거리를 배열로 생성
         int length = 0; // 목적지까지 거리
-        int human = 0; // 탑승인원
+        int human; // 탑승인원
 
         System.out.print("이동 지역 선택 [1]부산 [2]대전 [3]강릉 [4] 광주 : ");
         int num = sc.nextInt();
@@ -45,8 +46,8 @@ public class CarEx {
         int num2 = sc.nextInt();
         if (num2 == 1) car.bonus();
 
-        int number; // 편도 횟수
-        if (human < car.getSeat()) {
+        int number; // 편도 횟수, 이부분은 모든 클래스가 사용하는 부분임으로 부모에서 생성해 상속해주는 것이 좋다.
+        if (human < car.getSeat()) {  //나머지가 생기면 굳이 없어도 되는 부분
             number = 1;
         } else if (human % car.getSeat() == 0) {
             number = human / car.getSeat();
@@ -55,7 +56,7 @@ public class CarEx {
         int oilnum; // 주유횟수
         if ((number * length / car.getOil()) < car.getSize()) {
             oilnum = 1;
-        } else if ((number * length / car.getOil()) / car.getSize() == 0)
+        } else if ((number * length / car.getOil()) % car.getSize() == 0)
             oilnum = number * length / car.getOil() / car.getSize();
         else oilnum = (number * length / car.getOil() / car.getSize()) + 1;
 
