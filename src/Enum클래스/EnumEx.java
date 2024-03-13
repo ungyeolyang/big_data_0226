@@ -1,10 +1,15 @@
 package Enum클래스;
+
+import java.util.Scanner;
+
 // 열거 타입이란 한정된 상수값이 열거 상수 중에서 하나의 상수를 저장하는 타입
 // 입력값의 타입을 제한할 수 있음
 public class EnumEx {
     public static void main(String[] args) {
     Developer developer = new Developer("곰돌이", Career.SENIOR, DevType.BACKEND, Gender.MALE);
     developer.devInfo();
+        Scanner sc = new Scanner(System.in);
+        char special = sc.next().charAt(0);
     }
 }
 enum Career { JUNIOR,SENIOR }
