@@ -1,4 +1,4 @@
-package 집합;
+package Set_집합;
 
 import java.util.Arrays;
 import java.util.HashSet;
