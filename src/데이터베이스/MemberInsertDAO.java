@@ -11,17 +11,17 @@ public class MemberInsertDAO {
         Scanner sc = new Scanner(System.in);
         System.out.println("회원가입 정보를 입력 하세요 ");
         System.out.print("이름 : ");
-        String USER_NAME = sc.next().trim();
+        String NAME = sc.next().trim();
         System.out.print("아이디 : ");
-        String USER_ID = sc.next().trim();
+        String ID = sc.next().trim();
         System.out.print("비밀번호 : ");
-        String USER_PW = sc.next().trim();
+        String PW = sc.next().trim();
         System.out.print("닉네임 : ");
-        String USER_NICKNAME = sc.next().trim();
+        String NICKNAME = sc.next().trim();
 
         String query = "INSERT INTO MEMBER VALUES ("
-                 +"'"+ USER_ID +"'"+ ", " + "'"+ USER_PW + "'" + ", " + "'" +
-                USER_NAME + "'" + ", " +"'" + USER_NICKNAME +"'"+ ")";
+                 +"'"+ ID +"'"+ ", " + "'"+ PW + "'" + ", " + "'" +
+                NAME + "'" + ", " +"'" + NICKNAME +"'"+ ")";
 
         try {
             conn = Common.getConnection();
