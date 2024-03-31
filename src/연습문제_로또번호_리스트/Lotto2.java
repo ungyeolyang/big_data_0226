@@ -1,6 +1,7 @@
 package 연습문제_로또번호_리스트;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class Lotto2 {
@@ -12,13 +13,13 @@ public class Lotto2 {
             if(list.size() == 6) break;
         }
         System.out.println(list);
-    }
 
-//    HashSet<Integer>set = new HashSet<>(); // set은 중복을 허용하지 않아서 굳이 비교안해도된다.
-//    while(true) {
-//        int val = (int)(Math.random()* 45) + 1;
-//        set.add(val);
-//        if(set.size() == 6) break;
-//    }
-//    System.out.println(set);
+        HashSet<Integer> set = new HashSet<>(); // set은 중복을 허용하지 않아서 굳이 비교안해도된다.
+        while(true) {
+            int val = (int)(Math.random()* 45) + 1;
+            set.add(val);
+            if(set.size() == 6) break;
+        }
+        System.out.println(set);
+    }
 }

@@ -3,40 +3,40 @@ package 데이터베이스;
 import java.sql.Date;
 public class MemberVO {
 
-    private String USER_ID;
-    private String USER_PW;
-    private String USER_NAME;
-    private String USER_NICK;
+    private String id;
+    private String pw;
+    private String name;
+    private String nickName;
 
-    public String getUSER_ID() {
-        return USER_ID;
+    public String getId() {
+        return id;
     }
 
-    public String getUSER_PW() {
-        return USER_PW;
+    public String getPw() {
+        return pw;
     }
 
-    public String getUSER_NAME() {
-        return USER_NAME;
+    public String getName() {
+        return name;
     }
 
-    public String getUSER_NICK() {
-        return USER_NICK;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setUSER_ID(String USER_ID) {
-        this.USER_ID = USER_ID;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void setUSER_PW(String USER_PW) {
-        this.USER_PW = USER_PW;
+    public void setPw(String pw) {
+        this.pw = pw;
     }
 
-    public void setUSER_NAME(String USER_NAME) {
-        this.USER_NAME = USER_NAME;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setUSER_NICK(String USER_NICK) {
-        this.USER_NICK = USER_NICK;
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 }
