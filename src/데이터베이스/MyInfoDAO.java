@@ -3,7 +3,6 @@ package 데이터베이스;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.Scanner;
 
 public class MyInfoDAO {
     Connection conn = null;
@@ -38,46 +37,38 @@ public class MyInfoDAO {
         return vo;
     }
 
-    void updateMyInfo() {
+    void updateMyInfo(int sel,String data) {
         String query = null;
-        Scanner sc = new Scanner(System.in);
-        System.out.println("[1]이름, [2]비밀번호,[3]닉네임,[4]돌아가기");
-        int sel1 = sc.nextInt();
-        switch (sel1) {
+        switch (sel) {
             case 1:
-                System.out.print("이름 : ");
-                String name = sc.next().trim();
                 query = "UPDATE MEMBER "
-                        + " SET USER_NAME = " + "'" + name + "'"
+                        + " SET USER_NAME = " + "'" + data + "'"
                         + " WHERE USER_ID = " + "'" + Main.myId + "'";
                 break;
             case 2:
-                while (true) {
-                    System.out.print("비밀번호 : ");
-                    String pw = sc.next().trim();
-                    if (pw.length() <= 3) {
-                        System.out.println("비밀번호는 4자 이상이어야 합니다.");
-                        continue;
-                    }
-                    query = "UPDATE MEMBER "
-                            + " SET USER_PW = " + "'" + pw + "'"
-                            + " WHERE USER_ID = " + "'" + Main.myId + "'";
-                    break;
-                }
-                break;
-            case 3:
-                System.out.print("닉네임 : ");
-                String nickName = sc.next().trim();
                 query = "UPDATE MEMBER "
-                        + " SET USER_NICK = " + "'" + nickName + "'"
+                        + " SET USER_PW = " + "'" + data + "'"
                         + " WHERE USER_ID = " + "'" + Main.myId + "'";
-                Main.myNickName = nickName;
                 break;
-            case 4:
-                return;
-            default:
+
+            case 3:
+                query = "UPDATE MEMBER "
+                        + " SET USER_NICK = " + "'" + data + "'"
+                        + " WHERE USER_ID = " + "'" + Main.myId + "'";
+                Main.myNickName = data;
                 break;
         }
+        try {
+            conn = Common.getConnection();
+            stmt = conn.createStatement();
+            int ret = stmt.executeUpdate(query);
+            System.out.println("Return : " + ret);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        Common.close(stmt);
+        Common.close(conn);
     }
 
     void deleteMyInfo() {
