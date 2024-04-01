@@ -159,6 +159,25 @@ public class BoardDAO {
         Common.close(conn);
         return list;
     }
+
+    public boolean searchBoard(String str){
+        try {
+            conn = Common.getConnection();
+            stmt = conn.createStatement();
+
+            String query1 = "SELECT * FROM BOARD WHERE USER_ID = '" + Main.myId + "' AND NUTRIENTS_NAME = '" + str + "'";
+            rs = stmt.executeQuery(query1);
+            if (rs.next()) return false;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        Common.close(rs);
+        Common.close(stmt);
+        Common.close(conn);
+        return true;
+    }
+
     public void comment(NutrientsVO vo,String content){
         String query = null;
         query = "INSERT INTO BOARD VALUES (SEQ_COMMENT.NEXTVAL, '"

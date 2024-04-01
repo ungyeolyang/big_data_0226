@@ -113,11 +113,11 @@ public class Main {
                     String str = null;
                     while (true) {
                         System.out.print("영양제 이름을 입력하세요 : ");
-                        sc.nextLine();
                         String name1 = sc.nextLine().trim();
-                        if (name1.isEmpty()) {System.out.println("이름을 입력하세요.");continue;}
-                        str = board.checkNut(name1).replace("[","").replace("]","");
-                        if(str == null) continue;
+                        if (name1.isEmpty()) {System.out.println("이름을 입력하세요."); continue;}
+                        str = board.checkNut(name1);
+                        if(str == null)  continue;
+                        str = str.replace("[","").replace("]","");
                         break;
                     }
                     NutrientsVO voN = board.boardNut(str);
@@ -125,27 +125,31 @@ public class Main {
                     List<BoardVO> list= board.boardList(str);
                     board.printBoard(voN,set1,list);
                     while (true) {
-                        System.out.println("[1]댓글쓰기, [2]돌아가기");
-                        int sel3 = sc.nextInt();
-                        sc.nextLine();
-                        switch (sel3) {
-                            case 1:
-                                while (true) {
-                                    System.out.print("댓글 : ");
-                                    String content = sc.nextLine().trim();
-                                    if (content.isEmpty()) {
-                                        System.out.println("내용을 입력하세요.");
-                                        continue;
+                        if(board.searchBoard(str)) {
+                            System.out.println("[1]댓글쓰기, [2]돌아가기");
+                            int sel3 = sc.nextInt();
+                            sc.nextLine();
+                            switch (sel3) {
+                                case 1:
+                                    while (true) {
+                                        System.out.print("댓글 : ");
+                                        String content = sc.nextLine().trim();
+                                        if (content.isEmpty()) {
+                                            System.out.println("내용을 입력하세요.");
+                                            continue;
+                                        }
+                                        board.comment(voN, content);
+                                        break;
                                     }
-                                    board.comment(voN,content);
                                     break;
-                                }
-                                break;
-                            case 2:
-                                break;
-                            default:
-                                continue;
+                                case 2:
+                                    break;
+                                default:
+                                    continue;
+                            }
                         }
+                        else System.out.println("[1]돌아가기");
+                        int sel3 = sc.nextInt();
                         break;
                     }
                     break;
