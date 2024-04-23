@@ -6,6 +6,12 @@ public class Arr {
     public static void main(String[] args) {
         int[] arr = {0, 1, 2, 3, 4};
         int[][] query = {{0, 1},{1, 2},{2, 3}};
+        for(int e :solution(arr,query)) {
+            System.out.println(e);
+        }
+    }
+
+    public static int[] solution(int[] arr, int[][] query){
         int[] rst = arr.clone();
         for(int i = 0; i < query.length; i++){
             for(int j = 0; j < arr.length; j++){
@@ -14,8 +20,6 @@ public class Arr {
                 }
             }
         }
-        for (int e : rst){
-            System.out.println(e);
-        }
+        return rst;
     }
 }
