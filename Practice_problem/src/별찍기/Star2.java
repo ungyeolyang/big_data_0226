@@ -1,4 +1,4 @@
-package 별찍기2;
+package 별찍기;
 
 import java.util.ArrayList;
 import java.util.List;
