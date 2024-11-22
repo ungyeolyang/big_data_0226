@@ -15,18 +15,18 @@ public class Snail {
         int x = 0;
         while(true){
             for(int i = 0; i < column-1; i++){x++;}
-            if(x>=end){break;}
+            if(x>=end-1){break;}
             count++;
             for(int i = 0; i < row-1; i++){x++;}
-            if(x>=end){break;}
+            if(x>=end-1){break;}
             count++;
             row--;
             for(int i = 0; i < column-1; i++){x++;}
-            if(x>=end){break;}
+            if(x>=end-1){break;}
             count++;
             column--;
             for(int i = 0; i < row-1; i++){x++;}
-            if(x>=end){break;}
+            if(x>=end-1){break;}
             count++;
         }
         System.out.print(count);

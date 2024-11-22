@@ -10,9 +10,23 @@ public class Gold {
         String input = br.readLine();
         int num = Integer.parseInt(input);
         int result = 0;
-        while (true){
-            result += (int) (7 * Math.pow(10,input.length()-1));
-
+        for(int i = num; i>3; i--){
+            if(gold(i)){
+                result = i; break;
+            }
         }
+        System.out.println(result);
+    }
+    private static boolean gold(int i){
+        int compare = i;
+        while (true){
+            int c = compare%10;
+            if(c != 7 && c != 4){
+                return false;
+            }
+            if(compare /10 == 0){break;}
+            else compare /= 10;
+        }
+        return true;
     }
 }
